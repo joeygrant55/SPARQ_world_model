@@ -1,0 +1,881 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Simplified color palette - green accent only */
+    --accent: #c8ff00;
+    --accent-dim: rgba(200, 255, 0, 0.6);
+    --accent-subtle: rgba(200, 255, 0, 0.15);
+
+    /* Neutrals */
+    --black: #000000;
+    --rich-black: #050505;
+    --dark: #0a0a0a;
+    --gray-dark: #1a1a1a;
+    --gray-mid: #2a2a2a;
+    --gray-light: #666666;
+    --gray-muted: #999999;
+    --white: #ffffff;
+    --white-dim: rgba(255, 255, 255, 0.85);
+    --white-muted: rgba(255, 255, 255, 0.6);
+
+    /* Overlays for images */
+    --overlay-dark: rgba(0, 0, 0, 0.7);
+    --overlay-medium: rgba(0, 0, 0, 0.5);
+    --overlay-light: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* ===========================================
+   SLIDE BASE
+   =========================================== */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 80px 100px;
+    overflow: hidden;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide.prev {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+/* ===========================================
+   CONTENT CONTAINERS
+   =========================================== */
+.content {
+    max-width: 1400px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.content.centered {
+    text-align: center;
+}
+
+.content.left-aligned {
+    text-align: left;
+}
+
+/* Full-bleed background image container */
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.slide-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Gradient overlay variants */
+.slide-bg.overlay-heavy::after {
+    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.slide-bg.overlay-left::after {
+    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+
+.slide-bg.overlay-bottom::after {
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+}
+
+/* ===========================================
+   TYPOGRAPHY - HIGH CONTRAST
+   =========================================== */
+
+/* Giant display text */
+.display-xl {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(100px, 15vw, 180px);
+    font-weight: 700;
+    letter-spacing: -6px;
+    line-height: 0.85;
+}
+
+/* Hero headlines */
+.headline-xl {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.headline-lg {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 4.5vw, 60px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Section titles */
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    margin-bottom: 48px;
+    color: var(--white);
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--white);
+    letter-spacing: -0.3px;
+}
+
+/* Body text */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--white-dim);
+    font-weight: 400;
+}
+
+.text-sm {
+    font-size: 16px;
+    color: var(--white-muted);
+}
+
+.text-muted {
+    color: var(--gray-muted);
+}
+
+/* Accent text */
+.text-accent {
+    color: var(--accent);
+}
+
+/* Big numbers */
+.big-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(60px, 10vw, 140px);
+    font-weight: 700;
+    letter-spacing: -4px;
+    line-height: 1;
+    color: var(--accent);
+}
+
+/* ===========================================
+   SLIDE 1: TITLE
+   =========================================== */
+.title-slide .slide-bg {
+    /* USER: Add your hero athlete image here */
+    /* background-image: url('your-athlete-image.jpg'); */
+    background-color: var(--black);
+}
+
+.title-slide .slide-bg::after {
+    background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 70%);
+}
+
+.giant-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(120px, 18vw, 200px);
+    font-weight: 700;
+    margin-bottom: 32px;
+    letter-spacing: -6px;
+    line-height: 0.85;
+    color: var(--accent);
+    text-shadow:
+        0 0 60px rgba(200, 255, 0, 0.4),
+        0 0 120px rgba(200, 255, 0, 0.2);
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.tagline {
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--gray-muted);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* ===========================================
+   SLIDE 2: THE COLLISION (Split Screen)
+   =========================================== */
+.split-screen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.split-left {
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    position: relative;
+}
+
+.split-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, var(--accent) 30%, var(--accent) 70%, transparent 100%);
+}
+
+.split-right {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    /* USER: Add youth athletes image here */
+    /* background-image: url('your-youth-athletes.jpg'); */
+    background-color: var(--gray-dark);
+}
+
+.split-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--black) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.3) 100%);
+}
+
+.split-right .content {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    right: 40px;
+    z-index: 10;
+}
+
+.collision-stat {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(48px, 7vw, 100px);
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.collision-label {
+    font-size: 20px;
+    color: var(--white-dim);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* ===========================================
+   SLIDE 3: THE METRICS (Horizontal)
+   =========================================== */
+.metrics-slide .slide-bg {
+    /* USER: Add athlete testing image here */
+    /* background-image: url('your-testing-image.jpg'); */
+    background-color: var(--rich-black);
+}
+
+.metrics-horizontal {
+    display: flex;
+    gap: 0;
+    margin-top: 40px;
+}
+
+.metric-item {
+    flex: 1;
+    padding: 40px 32px;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.metric-item:first-child {
+    border-left: none;
+}
+
+.metric-item.highlighted {
+    background: var(--accent-subtle);
+    border-left: 3px solid var(--accent);
+}
+
+.metric-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.metric-item.highlighted .metric-icon {
+    opacity: 1;
+}
+
+.metric-item h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--white);
+}
+
+.metric-item.highlighted h3 {
+    color: var(--accent);
+}
+
+.metric-item p {
+    font-size: 16px;
+    color: var(--white-muted);
+    line-height: 1.5;
+}
+
+.metric-item.highlighted p {
+    color: var(--white-dim);
+}
+
+.metric-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 12px;
+}
+
+/* Data sovereignty callout */
+.sovereignty-callout {
+    margin-top: 60px;
+    padding: 32px 40px;
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--accent);
+}
+
+.sovereignty-callout h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.sovereignty-callout p {
+    font-size: 18px;
+    color: var(--white-dim);
+}
+
+/* ===========================================
+   SLIDE 4: THE FUNNEL (Full-bleed)
+   =========================================== */
+.funnel-slide .slide-bg {
+    /* USER: Add camp/event image here */
+    /* background-image: url('your-camp-image.jpg'); */
+    background-color: var(--gray-dark);
+}
+
+.funnel-slide .slide-bg::after {
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
+}
+
+.funnel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 70vh;
+    justify-content: space-between;
+}
+
+.funnel-top {
+    text-align: center;
+}
+
+.funnel-top .label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.funnel-top h3 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.funnel-top p {
+    font-size: 18px;
+    color: var(--white-muted);
+}
+
+.funnel-line {
+    width: 2px;
+    flex: 1;
+    max-height: 200px;
+    background: linear-gradient(180deg, var(--accent) 0%, rgba(200, 255, 0, 0.2) 100%);
+    position: relative;
+}
+
+.funnel-line::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid var(--accent);
+    opacity: 0.4;
+}
+
+.funnel-bottom {
+    text-align: center;
+}
+
+.funnel-bottom .big-number {
+    margin-bottom: 16px;
+}
+
+.funnel-bottom h3 {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.funnel-bottom p {
+    font-size: 18px;
+    color: var(--white-muted);
+}
+
+.funnel-callout {
+    margin-top: 40px;
+    padding: 24px 40px;
+    background: var(--accent);
+    color: var(--black);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ===========================================
+   SLIDE 5: THE DATA ENGINE (Left-aligned list)
+   =========================================== */
+.engine-slide {
+    padding-left: 120px;
+}
+
+.engine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.engine-list {
+    position: relative;
+    padding-left: 32px;
+}
+
+.engine-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent) 0%, rgba(200, 255, 0, 0.2) 100%);
+}
+
+.engine-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+.engine-item:last-child {
+    border-bottom: none;
+}
+
+.engine-item:nth-child(1) { animation-delay: 0.1s; }
+.engine-item:nth-child(2) { animation-delay: 0.2s; }
+.engine-item:nth-child(3) { animation-delay: 0.3s; }
+.engine-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.engine-item h3 {
+    font-size: 24px;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.engine-item p {
+    font-size: 18px;
+    color: var(--white-muted);
+}
+
+.engine-visual {
+    /* USER: Add visualization or photo here */
+    background: var(--gray-dark);
+    border-radius: 16px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.engine-callout {
+    margin-top: 48px;
+    padding: 28px 36px;
+    background: var(--accent);
+    color: var(--black);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ===========================================
+   SLIDE 6: THE PARTNERSHIPS (Big Numbers)
+   =========================================== */
+.partnerships-slide {
+    text-align: center;
+}
+
+.partnerships-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.partnership-card {
+    padding: 60px 48px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.partnership-card:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(200, 255, 0, 0.2);
+}
+
+.partnership-card .partner-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
+.partnership-card .big-stat {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.partnership-card .description {
+    font-size: 18px;
+    color: var(--white-dim);
+    line-height: 1.5;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.partnerships-tagline {
+    margin-top: 60px;
+    font-size: 24px;
+    color: var(--white-muted);
+    font-weight: 500;
+}
+
+.partnerships-tagline strong {
+    color: var(--accent);
+}
+
+/* ===========================================
+   SLIDE 7: THE FUTURE (Full-bleed hero)
+   =========================================== */
+.future-slide .slide-bg {
+    /* USER: Add aspirational athlete image here */
+    /* background-image: url('your-hero-image.jpg'); */
+    background-color: var(--gray-dark);
+}
+
+.future-slide .slide-bg::after {
+    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%);
+}
+
+.future-content {
+    max-width: 900px;
+}
+
+.vision-statement {
+    margin-bottom: 60px;
+}
+
+.vision-statement p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    margin-bottom: 24px;
+    color: var(--white);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+}
+
+.vision-statement p:nth-child(1) { animation-delay: 0.2s; }
+.vision-statement p:nth-child(2) { animation-delay: 0.4s; }
+.vision-statement p:nth-child(3) { animation-delay: 0.6s; }
+.vision-statement p:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.final-statement {
+    padding: 48px 56px;
+    background: var(--accent);
+    color: var(--black);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-statement h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===========================================
+   NAVIGATION
+   =========================================== */
+.navigation {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.9);
+    padding: 10px 20px;
+    border-radius: 40px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    z-index: 1000;
+}
+
+.nav-btn {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: var(--black);
+    border-color: var(--accent);
+}
+
+.nav-btn:disabled {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255,255,255,0.05);
+    cursor: not-allowed;
+}
+
+#slide-counter {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-muted);
+    min-width: 50px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 1024px) {
+    .slide {
+        padding: 60px 40px;
+    }
+
+    .split-screen {
+        grid-template-columns: 1fr;
+    }
+
+    .split-left {
+        padding: 60px 40px;
+        height: 50vh;
+    }
+
+    .split-left::after {
+        display: none;
+    }
+
+    .split-right {
+        height: 50vh;
+    }
+
+    .metrics-horizontal {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .metric-item {
+        border-left: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .metric-item.highlighted {
+        border-left: none;
+        border-bottom: 3px solid var(--accent);
+    }
+
+    .engine-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .engine-visual {
+        height: 200px;
+    }
+
+    .partnerships-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .navigation {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .slide {
+        padding: 40px 24px;
+    }
+
+    .giant-title {
+        font-size: 80px;
+        letter-spacing: -3px;
+    }
+
+    .partnership-card {
+        padding: 40px 32px;
+    }
+
+    .final-statement {
+        padding: 32px 24px;
+    }
+}

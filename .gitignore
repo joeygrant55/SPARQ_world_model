@@ -1,0 +1,9 @@
+# Obsidian workspace files (local state)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Claude Code local files
+.claude/
+
+# OS files
+.DS_Store
