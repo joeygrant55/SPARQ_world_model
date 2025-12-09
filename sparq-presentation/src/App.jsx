@@ -336,11 +336,7 @@ function VisionSlide({ content, isActive }) {
 }
 
 function Slide({ slide, isActive, isPrev }) {
-  // Slides that need to scroll from top
-  const scrollTopSlides = ['world-models', 'partnerships']
-  const needsScrollTop = scrollTopSlides.includes(slide.id)
-
-  const className = `slide ${isActive ? 'active' : ''} ${isPrev ? 'prev' : ''} ${needsScrollTop ? 'scroll-top' : ''}`
+  const className = `slide ${isActive ? 'active' : ''} ${isPrev ? 'prev' : ''}`
 
   const renderSlideContent = () => {
     switch (slide.type) {
