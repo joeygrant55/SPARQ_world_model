@@ -767,6 +767,18 @@ p {
   .funnel-content.large {
     width: 100% !important;
   }
+
+  .distribution-tiers {
+    grid-template-columns: 1fr;
+  }
+
+  .other-allocations {
+    grid-template-columns: 1fr;
+  }
+
+  .funds-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Tablet portrait and below */
@@ -956,6 +968,141 @@ p {
   .instagram-embed-container blockquote.instagram-media {
     transform: scale(0.65) !important;
   }
+
+  /* Use of Funds mobile */
+  .funds-amount {
+    font-size: clamp(40px, 12vw, 64px);
+    margin-bottom: clamp(16px, 3vh, 28px);
+  }
+
+  .distribution-section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .distribution-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .distribution-title {
+    font-size: 16px;
+  }
+
+  .distribution-total {
+    font-size: 24px;
+  }
+
+  .distribution-tiers {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .distribution-tier {
+    padding: 14px;
+  }
+
+  .tier-name {
+    font-size: 12px;
+  }
+
+  .tier-invest {
+    font-size: 18px;
+  }
+
+  .tier-detail {
+    font-size: 11px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .tier-math {
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .tier-athletes {
+    font-size: 14px;
+  }
+
+  .tier-multiply,
+  .tier-equals,
+  .tier-rate {
+    font-size: 12px;
+  }
+
+  .tier-revenue {
+    font-size: 16px;
+  }
+
+  .tier-return {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .return-arrow {
+    font-size: 14px;
+  }
+
+  .return-amount {
+    font-size: 18px;
+  }
+
+  .return-roi {
+    font-size: 11px;
+  }
+
+  .tier-outcome {
+    font-size: 11px;
+  }
+
+  .other-allocations {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .other-allocation {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .other-amount {
+    font-size: 20px;
+    margin-bottom: 0;
+    min-width: 70px;
+  }
+
+  .other-category {
+    font-size: 13px;
+  }
+
+  .other-outcomes {
+    font-size: 11px;
+  }
+
+  .funds-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .funds-metric {
+    padding: 12px 10px;
+  }
+
+  .funds-metric-value {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .funds-metric-label {
+    font-size: 10px;
+  }
 }
 
 /* Small phones */
@@ -992,6 +1139,1379 @@ p {
 
   .metric {
     padding: 14px 10px;
+  }
+}
+
+/* ===========================================
+   SLIDE 8: USE OF FUNDS
+   =========================================== */
+.funds-subtitle {
+  font-size: clamp(14px, 1.6vw, 20px);
+  color: var(--white-muted);
+  text-align: center;
+  margin-bottom: clamp(4px, 1vh, 12px);
+  margin-top: -12px;
+}
+
+.funds-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 800;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: clamp(24px, 4vh, 40px);
+  text-shadow: 0 0 80px rgba(200, 255, 0, 0.5);
+  letter-spacing: -3px;
+  line-height: 1;
+}
+
+/* Distribution Section */
+.distribution-section {
+  background: var(--gray-dark);
+  border-radius: 16px;
+  padding: clamp(20px, 2.5vh, 32px);
+  margin-bottom: clamp(20px, 3vh, 32px);
+  border: 1px solid rgba(200, 255, 0, 0.2);
+}
+
+.distribution-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(16px, 2vh, 24px);
+  padding-bottom: clamp(12px, 1.5vh, 20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.distribution-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.distribution-total {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  color: var(--white);
+}
+
+.distribution-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+}
+
+.distribution-tier {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: clamp(16px, 2vh, 24px);
+  border-left: 4px solid var(--accent);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.distribution-tier:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.distribution-tier.nice-to-have {
+  border-left-color: var(--gray-muted);
+  opacity: 0.7;
+}
+
+.distribution-tier.nice-to-have .tier-name::after {
+  content: ' (Nice to Have)';
+  font-size: 0.65em;
+  color: var(--gray-muted);
+  font-weight: 400;
+}
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.tier-name {
+  font-size: clamp(13px, 1.4vw, 17px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tier-invest {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.tier-detail {
+  font-size: clamp(11px, 1.1vw, 14px);
+  color: var(--white-muted);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tier-roi-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tier-math {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 0.5vw, 8px);
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.tier-athletes {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.tier-multiply,
+.tier-equals {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--white-muted);
+}
+
+.tier-rate {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--white-dim);
+}
+
+.tier-revenue {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.tier-return {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 0.8vw, 12px);
+  padding: clamp(10px, 1.2vh, 16px);
+  background: rgba(200, 255, 0, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(200, 255, 0, 0.3);
+}
+
+.return-arrow {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: var(--accent);
+}
+
+.return-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.return-roi {
+  font-size: clamp(12px, 1.3vw, 16px);
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.tier-qualitative {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.tier-outcome {
+  font-size: clamp(12px, 1.2vw, 15px);
+  color: var(--white-muted);
+  line-height: 1.4;
+}
+
+/* Other Allocations */
+.other-allocations {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+  margin-bottom: clamp(20px, 3vh, 32px);
+}
+
+.other-allocation {
+  background: var(--gray-dark);
+  border-radius: 10px;
+  padding: clamp(14px, 1.8vh, 22px) clamp(12px, 1.5vw, 18px);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.other-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.other-category {
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.other-outcomes {
+  font-size: clamp(10px, 1vw, 12px);
+  color: var(--white-muted);
+}
+
+/* Metrics */
+.funds-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+}
+
+.funds-metric {
+  background: rgba(200, 255, 0, 0.06);
+  border: 1px solid rgba(200, 255, 0, 0.15);
+  border-radius: 10px;
+  padding: clamp(14px, 2vh, 22px) clamp(10px, 1.2vw, 16px);
+  text-align: center;
+}
+
+.funds-metric-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+.funds-metric-label {
+  font-size: clamp(10px, 1.1vw, 13px);
+  color: var(--white-muted);
+  font-weight: 500;
+}
+
+/* ===========================================
+   USE OF FUNDS - DISTRIBUTION SLIDE (FULL)
+   =========================================== */
+.funds-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(24px, 4vh, 40px);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.funds-amount-large {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  color: var(--accent);
+  text-shadow: 0 0 60px rgba(200, 255, 0, 0.4);
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.funds-section-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.section-name {
+  font-size: clamp(12px, 1.2vw, 16px);
+  color: var(--white-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Full-width tier cards */
+.distribution-tiers-full {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vh, 24px);
+}
+
+.distribution-tier-full {
+  background: var(--gray-dark);
+  border-radius: 12px;
+  padding: clamp(16px, 2vh, 24px);
+  border-left: 4px solid var(--accent);
+  transition: all 0.2s ease;
+}
+
+.distribution-tier-full:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(6px);
+}
+
+.distribution-tier-full.nice-to-have {
+  border-left-color: var(--gray-muted);
+  opacity: 0.7;
+}
+
+.distribution-tier-full.nice-to-have .tier-name-full::after {
+  content: ' (Nice to Have)';
+  font-size: 0.7em;
+  color: var(--gray-muted);
+  font-weight: 400;
+  text-transform: none;
+}
+
+.tier-header-full {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.tier-name-full {
+  font-size: clamp(13px, 1.4vw, 18px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tier-invest-full {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.tier-detail-full {
+  font-size: clamp(13px, 1.4vw, 18px);
+  color: var(--white-muted);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tier-roi-section-full {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tier-math-full {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 16px);
+  flex-wrap: wrap;
+}
+
+.tier-math-full .math-athletes {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.tier-math-full .math-operator {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--white-muted);
+}
+
+.tier-math-full .math-rate {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--white-dim);
+}
+
+.tier-math-full .math-revenue {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.tier-return-full {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 14px);
+  padding: clamp(10px, 1.5vh, 16px);
+  background: rgba(200, 255, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(200, 255, 0, 0.4);
+}
+
+.return-arrow-full {
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--accent);
+}
+
+.return-amount-full {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.return-roi-full {
+  font-size: clamp(12px, 1.4vw, 16px);
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(200, 255, 0, 0.2);
+  padding: 4px 10px;
+  border-radius: 16px;
+}
+
+.tier-qualitative-full {
+  padding: 12px 0;
+}
+
+.tier-outcome-full {
+  font-size: clamp(14px, 1.6vw, 20px);
+  color: var(--white-muted);
+  line-height: 1.5;
+}
+
+/* ===========================================
+   USE OF FUNDS - SUPPORTING SLIDE
+   =========================================== */
+.supporting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(16px, 2.5vh, 28px);
+  padding-bottom: clamp(12px, 1.5vh, 18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.supporting-subtitle {
+  font-size: clamp(12px, 1.2vw, 16px);
+  color: var(--white-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.supporting-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.supporting-allocations {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.2vh, 16px);
+  margin-bottom: clamp(20px, 3vh, 32px);
+}
+
+.supporting-allocation {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 18px);
+  background: var(--gray-dark);
+  border-radius: 10px;
+  padding: clamp(14px, 1.8vh, 22px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.supporting-allocation:hover {
+  border-color: rgba(200, 255, 0, 0.2);
+  transform: translateX(4px);
+}
+
+.supporting-content {
+  flex: 1;
+}
+
+.supporting-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.supporting-category {
+  font-size: clamp(13px, 1.4vw, 18px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.supporting-alloc-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.supporting-description {
+  font-size: clamp(11px, 1.2vw, 14px);
+  color: var(--white-muted);
+}
+
+/* Summary Section */
+.funds-summary {
+  background: rgba(200, 255, 0, 0.08);
+  border: 1px solid rgba(200, 255, 0, 0.3);
+  border-radius: 12px;
+  padding: clamp(16px, 2vh, 28px);
+}
+
+.summary-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(14px, 1.5vw, 20px);
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: clamp(14px, 2vh, 22px);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 1.2vw, 18px);
+}
+
+.summary-item {
+  text-align: center;
+  padding: clamp(10px, 1.2vh, 16px);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.summary-item.highlight {
+  background: var(--accent);
+}
+
+.summary-item.highlight .summary-value,
+.summary-item.highlight .summary-label {
+  color: var(--black);
+}
+
+.summary-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(16px, 2vw, 26px);
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.summary-label {
+  font-size: clamp(9px, 1vw, 12px);
+  color: var(--white-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Mobile responsive for new slides */
+@media (max-width: 768px) {
+  .funds-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .funds-section-label {
+    align-items: flex-start;
+  }
+
+  .tier-header-full {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .tier-return-full {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .supporting-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .tier-math-full {
+    justify-content: center;
+  }
+
+  .tier-math-full .math-athletes,
+  .tier-math-full .math-revenue {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .return-amount-full {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+
+  .return-roi-full {
+    font-size: clamp(12px, 3.5vw, 16px);
+  }
+
+  .supporting-allocation {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .supporting-top {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - TEXT LIST
+   =========================================== */
+.text-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vh, 28px);
+  margin-bottom: clamp(32px, 5vh, 48px);
+}
+
+.text-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(20px, 3vh, 32px);
+  background: var(--gray-dark);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+
+.list-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  min-width: 40px;
+}
+
+.text-list-item p {
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--white);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - PROBLEM STATS
+   =========================================== */
+.problem-stats-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 48px);
+  margin-top: clamp(24px, 4vh, 40px);
+}
+
+.problem-stats-left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vh, 24px);
+}
+
+.problem-stat-card {
+  background: var(--gray-dark);
+  border-radius: 12px;
+  padding: clamp(20px, 2.5vh, 28px);
+  border-left: 4px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+.stat-description {
+  font-size: clamp(12px, 1.3vw, 15px);
+  color: var(--white-muted);
+  line-height: 1.4;
+}
+
+.problem-stats-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.narrative-main {
+  font-size: clamp(20px, 2.5vw, 32px);
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: clamp(20px, 3vh, 32px);
+}
+
+.narrative-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.5vh, 18px);
+}
+
+.narrative-bullets li {
+  font-size: clamp(14px, 1.6vw, 18px);
+  color: var(--white-dim);
+  padding-left: 20px;
+  position: relative;
+}
+
+.narrative-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .problem-stats-layout {
+    grid-template-columns: 1fr;
+    gap: clamp(24px, 3vh, 32px);
+  }
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - HIGHLIGHT
+   =========================================== */
+.highlight-statement {
+  margin: clamp(32px, 5vh, 64px) 0;
+}
+
+.big-statement {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(28px, 4.5vw, 56px);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.supporting-text {
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--white-dim);
+  text-align: center;
+  max-width: 800px;
+  margin: clamp(24px, 4vh, 40px) auto;
+  line-height: 1.5;
+}
+
+.examples-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px, 1.5vw, 20px);
+  flex-wrap: wrap;
+  margin-top: clamp(24px, 4vh, 40px);
+}
+
+.example-tag {
+  background: var(--gray-dark);
+  color: var(--white-muted);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: clamp(13px, 1.4vw, 16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-callout {
+  margin-top: clamp(32px, 5vh, 48px);
+  padding: clamp(20px, 3vh, 32px);
+  background: var(--accent);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.highlight-callout p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  color: var(--black);
+  margin: 0;
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - STATEMENT (SOLUTION)
+   =========================================== */
+.solution-statement {
+  margin: clamp(48px, 8vh, 100px) auto;
+  max-width: 900px;
+}
+
+.solution-big {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: clamp(24px, 4vh, 40px);
+}
+
+.solution-subtext {
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--accent);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.solution-logo {
+  width: clamp(200px, 30vw, 400px);
+  height: auto;
+  margin: clamp(24px, 4vh, 48px) auto;
+  display: block;
+  filter: drop-shadow(0 0 30px rgba(200, 255, 0, 0.3));
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - TRACTION
+   =========================================== */
+.traction-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+  margin-bottom: clamp(24px, 3vh, 36px);
+}
+
+.traction-stat {
+  background: var(--accent-subtle);
+  border: 1px solid rgba(200, 255, 0, 0.2);
+  border-radius: 12px;
+  padding: clamp(16px, 2vh, 28px);
+  text-align: center;
+}
+
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.stat-label {
+  font-size: clamp(12px, 1.2vw, 15px);
+  color: var(--white-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.other-partners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: clamp(16px, 2vh, 24px) 0;
+}
+
+.partners-label {
+  color: var(--white-muted);
+  font-size: clamp(14px, 1.4vw, 16px);
+}
+
+.partner-tag {
+  background: var(--gray-dark);
+  color: var(--white-dim);
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: clamp(13px, 1.3vw, 15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - DISTRIBUTION MODEL
+   =========================================== */
+.distribution-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 32px);
+  margin: clamp(32px, 5vh, 56px) 0;
+  flex-wrap: wrap;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 20px);
+}
+
+.flow-icon {
+  font-size: clamp(40px, 5vw, 64px);
+  flex-shrink: 0;
+}
+
+.flow-content {
+  background: var(--gray-dark);
+  border-radius: 12px;
+  padding: clamp(20px, 2.5vh, 32px);
+  border-left: 4px solid var(--accent);
+  min-width: 200px;
+}
+
+.flow-content h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.flow-content p {
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: var(--white-muted);
+  margin: 0;
+}
+
+.flow-arrow {
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--accent);
+  opacity: 0.6;
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - THREE TIER REVENUE
+   =========================================== */
+.three-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+  margin: clamp(32px, 5vh, 56px) 0;
+}
+
+.tier-card {
+  background: var(--gray-dark);
+  border-radius: 16px;
+  padding: clamp(24px, 3vh, 40px);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.tier-card:hover {
+  border-color: rgba(200, 255, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.tier-card.tier-highlight {
+  background: var(--accent-subtle);
+  border-color: rgba(200, 255, 0, 0.3);
+}
+
+.tier-icon {
+  font-size: clamp(36px, 4vw, 56px);
+  margin-bottom: 12px;
+}
+
+.tier-card .tier-name {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.tier-card h3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.tier-card p {
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: var(--white-muted);
+  line-height: 1.4;
+}
+
+/* ===========================================
+   NEW NARRATIVE SLIDES - BRAND NARRATIVE
+   =========================================== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vh, 24px);
+  margin: clamp(32px, 5vh, 56px) 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-item {
+  display: flex;
+  gap: clamp(16px, 2vw, 28px);
+  align-items: flex-start;
+  padding: clamp(16px, 2vh, 24px);
+  background: var(--gray-dark);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+
+.timeline-year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.timeline-text {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.insight-box {
+  background: var(--accent);
+  color: var(--black);
+  padding: clamp(24px, 3vh, 40px);
+  border-radius: 12px;
+  text-align: center;
+  margin: clamp(24px, 4vh, 40px) 0;
+}
+
+.insight-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--black);
+}
+
+.narrative-note {
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: var(--white-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===========================================
+   DISTRIBUTION MODEL V2 - WITH IMAGES
+   =========================================== */
+.distribution-grid-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vh, 24px);
+  margin: clamp(24px, 4vh, 40px) 0;
+}
+
+.distribution-top-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.distribution-bottom-row {
+  width: 100%;
+}
+
+.distribution-card-v2 {
+  background: var(--gray-dark);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.distribution-card-v2:hover {
+  border-color: rgba(200, 255, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+.distribution-card-v2.full-width {
+  width: 100%;
+}
+
+.distribution-image-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: var(--gray-mid);
+}
+
+.distribution-image-container.wide {
+  height: 280px;
+  background: var(--white);
+  border-radius: 12px;
+}
+
+.distribution-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Revenue chart needs contain to show full image */
+.distribution-image-container.wide .distribution-image {
+  object-fit: contain;
+  object-position: center center;
+}
+
+.distribution-card-content {
+  padding: clamp(16px, 2vh, 24px);
+}
+
+.distribution-card-content h3 {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.distribution-card-content p {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: var(--white-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Text-only variant for bottom row */
+.distribution-card-v2.text-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.distribution-card-content.centered {
+  text-align: center;
+  padding: clamp(24px, 3vh, 40px);
+}
+
+.distribution-card-content.centered h3 {
+  font-size: clamp(20px, 2.2vw, 28px);
+}
+
+.distribution-card-content.centered p {
+  font-size: clamp(14px, 1.5vw, 18px);
+}
+
+/* ===========================================
+   THREE TIER V2 - WITH IMAGES
+   =========================================== */
+.three-tier-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  margin: clamp(24px, 4vh, 40px) 0;
+}
+
+.tier-card-v2 {
+  background: var(--gray-dark);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.tier-card-v2:hover {
+  border-color: rgba(200, 255, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+.tier-card-v2.tier-highlight {
+  border-color: rgba(200, 255, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(200, 255, 0, 0.15);
+}
+
+.tier-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: var(--gray-mid);
+  border-radius: 8px;
+}
+
+.tier-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: var(--gray-dark);
+}
+
+.tier-card-v2-content {
+  padding: clamp(16px, 2vh, 24px);
+  text-align: center;
+}
+
+.tier-name-v2 {
+  font-size: clamp(11px, 1.1vw, 13px);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.tier-card-v2 h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.tier-card-v2 p {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: var(--white-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Mobile responsive for image-based slides */
+@media (max-width: 768px) {
+  .distribution-top-row {
+    grid-template-columns: 1fr;
+  }
+
+  .distribution-image-container {
+    height: 150px;
+  }
+
+  .distribution-image-container.wide {
+    height: 220px;
+  }
+
+  .three-tier-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .tier-image-container {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .distribution-image-container {
+    height: 120px;
+  }
+
+  .distribution-image-container.wide {
+    height: 180px;
+  }
+
+  .tier-image-container {
+    height: 200px;
+  }
+}
+
+/* ===========================================
+   MOBILE RESPONSIVE FOR NEW SLIDES
+   =========================================== */
+@media (max-width: 768px) {
+  .traction-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .three-tier-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .distribution-flow {
+    flex-direction: column;
+  }
+
+  .flow-step {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+
+  .flow-content {
+    min-width: auto;
+    flex: 1;
+    max-width: 300px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .timeline-year {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-list-item {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .list-number {
+    min-width: auto;
+  }
+
+  .traction-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .traction-stat {
+    padding: 12px 8px;
+  }
+
+  .stat-value {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .examples-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .other-partners {
+    flex-direction: column;
   }
 }
 
